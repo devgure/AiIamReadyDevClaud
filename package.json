@@ -1,0 +1,33 @@
+//package.json` (Root Workspace)
+
+{
+  "name": "etincel",
+  "version": "1.0.0",
+  "description": "AI-Powered Dating Platform",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "client/*",
+    "admin-dashboard"
+  ],
+  "scripts": {
+    "dev": "docker-compose -f docker-compose.dev.yml up",
+    "prod": "docker-compose up -d",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "migrate": "npm run migrate --workspaces",
+    "seed": "ts-node scripts/seed-db.ts",
+    "clean": "docker-compose down -v && docker system prune -af"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0"
+  }
+}
+
+
+
+
